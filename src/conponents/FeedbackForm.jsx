@@ -31,17 +31,18 @@ export default function FeedbackForm({ handleAdd }) {
             text,
             rating
         }
+        console.log(rating)
+        handleAdd(newItem)
         setText('')
         setRating(10)
         setBtnDisabled(true)
-        handleAdd(newItem)
     }
 
     return (
         <Card>
             <form onSubmit={handleSubmit}>
                 <h2>How would you rate your service with us?</h2>
-                <RatingSelect select={setRating} />
+                <RatingSelect select={{ rating, setRating }} />
                 <div className="input-group">
                     <input type="text" value={text} placeholder="write a review" onChange={handleTextChange} />
                     <Button type="submit" isDisable={btnDisabled}>Send</Button>

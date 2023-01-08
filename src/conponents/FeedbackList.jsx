@@ -9,7 +9,16 @@ export default function FeedbackList({ feedback, deleteFeedback }) {
     }
     return (
         <div className='feedback-list'>
-            {feedback.map((item) => <Feedbackitem key={item.id} item={item} deleteFeedback={deleteFeedback} />)}
-        </div>
+            {feedback.map((item) =>
+
+                <Feedbackitem
+                    key={item.id}
+                    item={item}
+                    deleteFeedback={deleteFeedback}
+                />
+
+            )}
+
+        </div >
     )
 }

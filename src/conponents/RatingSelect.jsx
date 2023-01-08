@@ -1,12 +1,12 @@
 
 import { useState } from "react"
 
-export default function RatingSelect({ select }) {
+export default function RatingSelect({ select: { rating, setRating } }) {
     const [selected, setSelected] = useState(10);
 
     function handleChange(e) {
         setSelected(+e.currentTarget.value)
-        select(+e.currentTarget.value)
+        setRating(+e.currentTarget.value)
     }
     return (
         <ul className='rating'>
@@ -18,7 +18,7 @@ export default function RatingSelect({ select }) {
                         name='rating'
                         value={i + 1}
                         onChange={handleChange}
-                        checked={selected === i + 1}
+                        checked={rating === i + 1}
                     />
                     <label htmlFor={`num${i + 1}`}>{i + 1}</label>
                 </li>
